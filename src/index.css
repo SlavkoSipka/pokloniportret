@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Critical font loading with fallbacks */
+@font-face {
+  font-family: 'Playfair Display';
+  font-display: swap;
+  src: local('Playfair Display'), local('Georgia'), serif;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  src: local('Inter'), local('Arial'), sans-serif;
+}
+
+@layer base {
+  /* Force light color scheme to prevent dark mode interference */
+  :root {
+    color-scheme: light only;
+    /* Support for safe area insets on mobile devices */
+    --safe-area-inset-top: env(safe-area-inset-top, 0px);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  
+  html {
+    color-scheme: light only;
+    background-color: white;
+    /* Prevent zoom on mobile when focusing inputs */
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  body {
+    color-scheme: light only;
+    background-color: white;
+    color: #1f2937;
+    /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden;
+  }
+  
+  /* Ensure all elements respect light mode */
+  * {
+    color-scheme: light only;
+  }
+  
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-feature-settings: 'kern' 1;
+    text-rendering: optimizeLegibility;
+  }
+  
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+    font-display: swap;
+  }
+  
+  .hero-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    line-height: 1.6;
+    font-display: swap;
+  }
+  
+  .hero-features {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    font-display: swap;
+  }
+  
+  .process-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    font-display: swap;
+  }
+  
+  .process-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.005em;
+    line-height: 1.5;
+    font-display: swap;
+  }
+  
+  .pricing-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    font-display: swap;
+  }
+  
+  .pricing-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.005em;
+    line-height: 1.5;
+    font-display: swap;
+  }
+  
+  /* Performance optimizations */
+  img {
+    content-visibility: auto;
+  }
+  
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .text-shadow-xl {
+    text-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .will-change-opacity {
+    will-change: opacity;
+  }
+  
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+  }
+  
+  /* Smooth animations for all devices */
+  .hero-title, .hero-subtitle {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+  }
+  
+  /* Prevent animation jank on mobile */
+  @media (max-width: 768px) {
+    /* Prevent viewport issues on mobile browsers */
+    html {
+      height: -webkit-fill-available;
+    }
+    
+    body {
+      min-height: 100vh;
+      min-height: -webkit-fill-available;
+    }
+    
+    /* Reduce animations on mobile for better performance */
+    .hero-title, .hero-subtitle {
+      transform: none !important;
+    }
+    
+    .hero-title {
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    .hero-subtitle {
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+    
+    /* Optimize images on mobile */
+    img {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 30px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  /* Fix for mobile modal positioning */
+  @supports (padding: max(0px)) {
+    .modal-safe-area {
+      padding-top: max(1rem, env(safe-area-inset-top));
+      padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+  }
+  
+  /* Critical CSS for hero background */
+  .hero-bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    will-change: transform;
+  }
+  
+  /* Optimize carousel performance */
+  .carousel-container {
+    contain: layout style paint;
+  }
+}

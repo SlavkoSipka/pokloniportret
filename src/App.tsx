@@ -214,8 +214,8 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent"
-             style={{ opacity: Math.min(1, scrollY * 0.01) }} className="will-change-opacity"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent will-change-opacity"
+             style={{ opacity: Math.min(1, scrollY * 0.01) }}></div>
       </section>
 
       {/* Kako funkcioniše proces */}
@@ -802,9 +802,13 @@ function App() {
             </div>
             
             {/* AiSajt.com credit */}
-            <div className="text-center sm:text-right text-xs text-gray-500 hover:text-gray-300 transition-colors duration-300">
-              <a href="https://aisajt.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                Web dizajn: AiSajt.com
+            <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 text-xs text-gray-500">
+              <a href="https://aisajt.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors duration-300">
+                Website by AiSajt
+              </a>
+              <span className="hidden sm:inline text-gray-600">•</span>
+              <a href="/o-projektu.html" className="hover:text-gray-300 transition-colors duration-300">
+                O projektu
               </a>
             </div>
           </div>
@@ -864,6 +868,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App

@@ -21,6 +21,14 @@
     </image:image>
   </url>
 
+  <!-- Case Study / About Project -->
+  <url>
+    <loc>https://pokloniportret.rs/o-projektu.html</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Pricing Section -->
   <url>
     <loc>https://pokloniportret.rs/#pricing-section</loc>

@@ -31,21 +31,21 @@ const PricingModal: React.FC<PricingModalProps> = ({ isOpen, onClose, onViberCli
   if (!isOpen) return null;
 
   const pricingData = [
-    { size: "20 × 30 cm", price: "2.999" },
-    { size: "30 × 40 cm", price: "3.399" },
-    { size: "35 × 45 cm", price: "3.999" },
-    { size: "45 × 60 cm", price: "4.999" },
-    { size: "50 × 75 cm", price: "6.199", popular: true },
-    { size: "70 × 100 cm", price: "9.899" }
+    { size: "20 × 30 cm", priceRSD: "2.999", priceKM: "50" },
+    { size: "30 × 40 cm", priceRSD: "3.399", priceKM: "56" },
+    { size: "35 × 45 cm", priceRSD: "3.999", priceKM: "66" },
+    { size: "45 × 60 cm", priceRSD: "4.999", priceKM: "83" },
+    { size: "50 × 75 cm", priceRSD: "6.199", priceKM: "103", popular: true },
+    { size: "70 × 100 cm", priceRSD: "9.899", priceKM: "164" }
   ];
 
   const imageMap: { [key: string]: string } = {
-    "20 × 30 cm": "http://aislike.rs/portret/30x20.jpg",
-    "30 × 40 cm": "http://aislike.rs/portret/40x30cm.jpg",
-    "35 × 45 cm": "http://aislike.rs/portret/45x35cm.jpg",
-    "45 × 60 cm": "http://aislike.rs/portret/60x45cm.jpg",
-    "50 × 75 cm": "http://aislike.rs/portret/75x50cm.jpg",
-    "70 × 100 cm": "http://aislike.rs/portret/100x70cm.jpg"
+    "20 × 30 cm": "/images/dimenzije/30x20.jpg",
+    "30 × 40 cm": "/images/dimenzije/40x30cm.jpg",
+    "35 × 45 cm": "/images/dimenzije/45x35cm.jpg",
+    "45 × 60 cm": "/images/dimenzije/60x45cm.jpg",
+    "50 × 75 cm": "/images/dimenzije/75x50cm.jpg",
+    "70 × 100 cm": "/images/dimenzije/100x70cm.jpg"
   };
 
   const handleShowImage = (size: string) => {
@@ -57,7 +57,7 @@ const PricingModal: React.FC<PricingModalProps> = ({ isOpen, onClose, onViberCli
       // Track viewing specific portrait size
       const priceData = pricingData.find(item => item.size === size);
       if (priceData) {
-        trackPortraitEvents.viewPortraitSize(size, priceData.price);
+        trackPortraitEvents.viewPortraitSize(size, priceData.priceRSD);
       }
     }
   };
@@ -125,7 +125,8 @@ const PricingModal: React.FC<PricingModalProps> = ({ isOpen, onClose, onViberCli
                         )}
                       </div>
                       <div className="space-y-1">
-                        <div className="font-bold text-sky-600 text-lg sm:text-xl">{item.price} RSD</div>
+                        <div className="font-bold text-sky-600 text-base sm:text-lg">{item.priceRSD} RSD</div>
+                        <div className="font-bold text-sky-600 text-base sm:text-lg">{item.priceKM} KM</div>
                       </div>
                       {item.size !== "70 × 100 cm" && (
                         <button

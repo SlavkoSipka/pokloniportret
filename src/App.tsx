@@ -10,8 +10,8 @@ import { initFacebookPixel, trackPortraitEvents } from './utils/facebookPixel';
 
 // Preload critical images
 const preloadImages = [
-  "https://aislike.rs/portret/Logo.png",
-  "http://aislike.rs/portret/horiz.jpg"
+  "/images/Logo.png",
+  "/images/homepage.jpg"
 ];
 
 // Preload images on component mount
@@ -26,14 +26,14 @@ const preloadCriticalImages = () => {
 };
 
 const reviewImages = [
-  "http://aislike.rs/portret/1.png",
-  "http://aislike.rs/portret/2.png",
-  "http://aislike.rs/portret/3.png",
-  "http://aislike.rs/portret/4.png",
-  "http://aislike.rs/portret/5.png",
-  "http://aislike.rs/portret/6.png",
-  "http://aislike.rs/portret/7.png",
-  "http://aislike.rs/portret/8.png"
+  "/images/1.png",
+  "/images/2.png",
+  "/images/3.png",
+  "/images/4.png",
+  "/images/5.png",
+  "/images/6.png",
+  "/images/7.png",
+  "/images/8.png"
 ];
 
 function App() {
@@ -55,18 +55,17 @@ function App() {
   // Pricing section animations
   const [setPricingTitleRef, isPricingTitleVisible] = useIntersectionObserver();
   const [setPricingCardsRef, isPricingCardsVisible] = useIntersectionObserver();
-  const [setAdditionalServicesRef, isAdditionalServicesVisible] = useIntersectionObserver();
   const [setDeliveryInfoRef, isDeliveryInfoVisible] = useIntersectionObserver();
   const [setPricingButtonRef, isPricingButtonVisible] = useIntersectionObserver();
 
   const handleViberClick = () => {
-    window.open('viber://chat?number=+381604184190', '_blank');
+    window.open('viber://chat?number=+381617300731', '_blank');
     trackPortraitEvents.navbarViberClick();
   };
 
   const handleFreeDemoViberClick = () => {
     // Direktno otvori Viber chat
-    window.open('viber://chat?number=+381604184190', '_blank');
+    window.open('viber://chat?number=+381617300731', '_blank');
     trackPortraitEvents.requestPreview();
   };
 
@@ -127,7 +126,7 @@ function App() {
                 isScrolled ? 'w-16 h-16 sm:w-20 sm:h-20' : 'w-24 h-24 sm:w-28 sm:h-28'
               }`}>
                 <img 
-                  src="https://aislike.rs/portret/Logo.png" 
+                  src="/images/Logo.png" 
                   alt="Pokloni Portret - Ručno rađeni portreti kao poklon" 
                   className="w-full h-full object-contain"
                   style={{ colorScheme: 'light only' }}
@@ -137,22 +136,46 @@ function App() {
               </div>
             </div>
             
-            {/* Viber dugme */}
-            <button
-              onClick={handleViberClick}
-              className={`bg-purple-500 rounded-full hover:bg-purple-600 transition-all duration-300 transform hover:scale-110 flex items-center space-x-2 ${
-                isScrolled ? 'p-1.5 sm:p-2' : 'p-2 sm:p-3'
-              }`}
-              title="Kontaktirajte nas na Viber"
-              style={{ colorScheme: 'light only' }}
-            >
-              <Phone className={`text-white transition-all duration-300 ${
-                isScrolled ? 'w-4 h-4 sm:w-5 sm:h-5' : 'w-5 h-5 sm:w-6 sm:h-6'
-              }`} />
-              <span className={`hidden sm:inline text-white font-medium transition-all duration-300 ${
-                isScrolled ? 'text-sm' : 'text-base'
-              }`}>Viber</span>
-            </button>
+            {/* Viber dugme i zastave */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleViberClick}
+                className={`bg-purple-500 rounded-full hover:bg-purple-600 transition-all duration-300 transform hover:scale-110 flex items-center space-x-2 ${
+                  isScrolled ? 'p-1.5 sm:p-2' : 'p-2 sm:p-3'
+                }`}
+                title="Kontaktirajte nas na Viber"
+                style={{ colorScheme: 'light only' }}
+              >
+                <Phone className={`text-white transition-all duration-300 ${
+                  isScrolled ? 'w-4 h-4 sm:w-5 sm:h-5' : 'w-5 h-5 sm:w-6 sm:h-6'
+                }`} />
+                <span className={`hidden sm:inline text-white font-medium transition-all duration-300 ${
+                  isScrolled ? 'text-sm' : 'text-base'
+                }`}>Viber</span>
+              </button>
+              
+              {/* Zastave */}
+              <div className="flex items-center gap-1">
+                <img 
+                  src="https://flagcdn.com/w20/rs.png"
+                  srcSet="https://flagcdn.com/w40/rs.png 2x"
+                  alt="Srbija"
+                  className={`transition-all duration-300 ${
+                    isScrolled ? 'w-5 h-4' : 'w-6 h-5'
+                  }`}
+                  title="Dostupno u Srbiji"
+                />
+                <img 
+                  src="https://flagcdn.com/w20/ba.png"
+                  srcSet="https://flagcdn.com/w40/ba.png 2x"
+                  alt="Bosna i Hercegovina"
+                  className={`transition-all duration-300 ${
+                    isScrolled ? 'w-5 h-4' : 'w-6 h-5'
+                  }`}
+                  title="Dostupno u Bosni i Hercegovini"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </nav>
@@ -163,7 +186,7 @@ function App() {
         <div 
           className="absolute inset-0 hero-bg"
           style={{
-            backgroundImage: window.innerWidth <= 768 ? 'url(http://aislike.rs/portret/homepage.jpg)' : 'url(http://aislike.rs/portret/horiz.jpg)',
+            backgroundImage: window.innerWidth <= 768 ? 'url(/images/_jovanph-48.webp)' : 'url(/images/_jovanph-51.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat'
@@ -260,7 +283,7 @@ function App() {
                   </span>
                 </div>
                 <LazyImage 
-                  src="http://aislike.rs/portret/before.jpg" 
+                  src="/images/before i after/before.jpg" 
                   alt="Originalna fotografija pre pravljenja portreta" 
                   className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
@@ -299,8 +322,7 @@ function App() {
                   </span>
                 </div>
                 <LazyImage 
-                  src="http://aislike.rs/portret/probniprikaz.jpg
-" 
+                  src="/images/probniprikaz.jpg" 
                   alt="Besplatni prikaz portreta pre finalizacije" 
                   className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
@@ -339,7 +361,7 @@ function App() {
                   </span>
                 </div>
                 <LazyImage 
-                  src="http://aislike.rs/portret/after.jpg" 
+                  src="/images/before i after/after.jpg" 
                   alt="Finalni ručno rađeni portret kao poklon" 
                   className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
@@ -419,11 +441,14 @@ function App() {
                   <span className="text-sky-600 font-bold text-sm">20×30</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-sky-600">20 × 30 cm</h3>
-                <div className="text-3xl font-bold text-sky-600 mb-2 transition-all duration-300 group-hover:scale-105">
-                  2.999<span className="text-lg font-normal text-gray-600"> RSD</span>
+                <div className="text-2xl font-bold text-sky-600 mb-1 transition-all duration-300 group-hover:scale-105">
+                  2.999<span className="text-base font-normal text-gray-600"> RSD</span>
+                </div>
+                <div className="text-2xl font-bold text-sky-600 mb-2 transition-all duration-300 group-hover:scale-105">
+                  50<span className="text-base font-normal text-gray-600"> KM</span>
                 </div>
                 <button
-                  onClick={() => handleShowModal('http://aislike.rs/portret/30x20.jpg')}
+                  onClick={() => handleShowModal('/images/dimenzije/30x20.jpg')}
                   className="w-full bg-sky-500 text-white py-3 rounded-full font-semibold hover:bg-sky-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                 >
                   Primer
@@ -438,11 +463,14 @@ function App() {
                   <span className="text-sky-600 font-bold text-sm">30×40</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-sky-600">30 × 40 cm</h3>
-                <div className="text-3xl font-bold text-sky-600 mb-2 transition-all duration-300 group-hover:scale-105">
-                  3.399<span className="text-lg font-normal text-gray-600"> RSD</span>
+                <div className="text-2xl font-bold text-sky-600 mb-1 transition-all duration-300 group-hover:scale-105">
+                  3.399<span className="text-base font-normal text-gray-600"> RSD</span>
+                </div>
+                <div className="text-2xl font-bold text-sky-600 mb-2 transition-all duration-300 group-hover:scale-105">
+                  56<span className="text-base font-normal text-gray-600"> KM</span>
                 </div>
                 <button
-                  onClick={() => handleShowModal('http://aislike.rs/portret/40x30cm.jpg')}
+                  onClick={() => handleShowModal('/images/dimenzije/40x30cm.jpg')}
                   className="w-full bg-sky-500 text-white py-3 rounded-full font-semibold hover:bg-sky-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                 >
                   Primer
@@ -457,11 +485,14 @@ function App() {
                   <span className="text-sky-600 font-bold text-sm">35×45</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-sky-600">35 × 45 cm</h3>
-                <div className="text-3xl font-bold text-sky-600 mb-2 transition-all duration-300 group-hover:scale-105">
-                  3.999<span className="text-lg font-normal text-gray-600"> RSD</span>
+                <div className="text-2xl font-bold text-sky-600 mb-1 transition-all duration-300 group-hover:scale-105">
+                  3.999<span className="text-base font-normal text-gray-600"> RSD</span>
+                </div>
+                <div className="text-2xl font-bold text-sky-600 mb-2 transition-all duration-300 group-hover:scale-105">
+                  66<span className="text-base font-normal text-gray-600"> KM</span>
                 </div>
                 <button
-                  onClick={() => handleShowModal('http://aislike.rs/portret/45x35cm.jpg')}
+                  onClick={() => handleShowModal('/images/dimenzije/45x35cm.jpg')}
                   className="w-full bg-sky-500 text-white py-3 rounded-full font-semibold hover:bg-sky-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                 >
                   Primer
@@ -476,11 +507,14 @@ function App() {
                   <span className="text-sky-600 font-bold text-sm">45×60</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-sky-600">45 × 60 cm</h3>
-                <div className="text-3xl font-bold text-sky-600 mb-2 transition-all duration-300 group-hover:scale-105">
-                  4.999<span className="text-lg font-normal text-gray-600"> RSD</span>
+                <div className="text-2xl font-bold text-sky-600 mb-1 transition-all duration-300 group-hover:scale-105">
+                  4.999<span className="text-base font-normal text-gray-600"> RSD</span>
+                </div>
+                <div className="text-2xl font-bold text-sky-600 mb-2 transition-all duration-300 group-hover:scale-105">
+                  83<span className="text-base font-normal text-gray-600"> KM</span>
                 </div>
                 <button
-                  onClick={() => handleShowModal('http://aislike.rs/portret/60x45cm.jpg')}
+                  onClick={() => handleShowModal('/images/dimenzije/60x45cm.jpg')}
                   className="w-full bg-sky-500 text-white py-3 rounded-full font-semibold hover:bg-sky-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                 >
                   Primer
@@ -498,11 +532,14 @@ function App() {
                   <span className="text-white font-bold text-sm">50×75</span>
                 </div>
                 <h3 className="text-xl font-bold mb-2 transition-all duration-300 group-hover:scale-105">50 × 75 cm</h3>
-                <div className="text-3xl font-bold mb-2 transition-all duration-300 group-hover:scale-105">
-                  6.199<span className="text-lg font-normal opacity-80"> RSD</span>
+                <div className="text-2xl font-bold mb-1 transition-all duration-300 group-hover:scale-105">
+                  6.199<span className="text-base font-normal opacity-80"> RSD</span>
+                </div>
+                <div className="text-2xl font-bold mb-2 transition-all duration-300 group-hover:scale-105">
+                  103<span className="text-base font-normal opacity-80"> KM</span>
                 </div>
                 <button
-                  onClick={() => handleShowModal('http://aislike.rs/portret/75x50cm.jpg')}
+                  onClick={() => handleShowModal('/images/dimenzije/75x50cm.jpg')}
                   className="w-full bg-white text-sky-600 py-3 rounded-full font-semibold hover:bg-sky-50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                 >
                   Primer
@@ -517,8 +554,11 @@ function App() {
                   <span className="text-sky-600 font-bold text-sm">70×100</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-sky-600">70 × 100 cm</h3>
-                <div className="text-3xl font-bold text-sky-600 mb-2 transition-all duration-300 group-hover:scale-105">
-                  9.899<span className="text-lg font-normal text-gray-600"> RSD</span>
+                <div className="text-2xl font-bold text-sky-600 mb-1 transition-all duration-300 group-hover:scale-105">
+                  9.899<span className="text-base font-normal text-gray-600"> RSD</span>
+                </div>
+                <div className="text-2xl font-bold text-sky-600 mb-2 transition-all duration-300 group-hover:scale-105">
+                  164<span className="text-base font-normal text-gray-600"> KM</span>
                 </div>
               </div>
             </div>
@@ -533,11 +573,14 @@ function App() {
                   <span className="text-sky-600 font-bold text-sm">20×30</span>
                 </div>
                 <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-sky-600">20 × 30 cm</h3>
-                <div className="text-2xl lg:text-3xl font-bold text-sky-600 mb-3 lg:mb-4 transition-all duration-300 group-hover:scale-105">
-                  2.999<span className="text-sm lg:text-lg font-normal text-gray-600"> RSD</span>
+                <div className="text-xl lg:text-2xl font-bold text-sky-600 mb-1 transition-all duration-300 group-hover:scale-105">
+                  2.999<span className="text-xs lg:text-base font-normal text-gray-600"> RSD</span>
+                </div>
+                <div className="text-xl lg:text-2xl font-bold text-sky-600 mb-3 lg:mb-4 transition-all duration-300 group-hover:scale-105">
+                  50<span className="text-xs lg:text-base font-normal text-gray-600"> KM</span>
                 </div>
                 <button
-                  onClick={() => handleShowModal('http://aislike.rs/portret/30x20.jpg')}
+                  onClick={() => handleShowModal('/images/dimenzije/30x20.jpg')}
                   className="w-full bg-sky-500 text-white py-2 lg:py-3 rounded-full font-semibold hover:bg-sky-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-sm lg:text-base"
                 >
                   Primer
@@ -552,11 +595,14 @@ function App() {
                   <span className="text-sky-600 font-bold text-sm">30×40</span>
                 </div>
                 <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-sky-600">30 × 40 cm</h3>
-                <div className="text-2xl lg:text-3xl font-bold text-sky-600 mb-3 lg:mb-4 transition-all duration-300 group-hover:scale-105">
-                  3.399<span className="text-sm lg:text-lg font-normal text-gray-600"> RSD</span>
+                <div className="text-xl lg:text-2xl font-bold text-sky-600 mb-1 transition-all duration-300 group-hover:scale-105">
+                  3.399<span className="text-xs lg:text-base font-normal text-gray-600"> RSD</span>
+                </div>
+                <div className="text-xl lg:text-2xl font-bold text-sky-600 mb-3 lg:mb-4 transition-all duration-300 group-hover:scale-105">
+                  56<span className="text-xs lg:text-base font-normal text-gray-600"> KM</span>
                 </div>
                 <button
-                  onClick={() => handleShowModal('http://aislike.rs/portret/40x30cm.jpg')}
+                  onClick={() => handleShowModal('/images/dimenzije/40x30cm.jpg')}
                   className="w-full bg-sky-500 text-white py-2 lg:py-3 rounded-full font-semibold hover:bg-sky-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-sm lg:text-base"
                 >
                   Primer
@@ -571,11 +617,14 @@ function App() {
                   <span className="text-sky-600 font-bold text-sm">35×45</span>
                 </div>
                 <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-sky-600">35 × 45 cm</h3>
-                <div className="text-2xl lg:text-3xl font-bold text-sky-600 mb-3 lg:mb-4 transition-all duration-300 group-hover:scale-105">
-                  3.999<span className="text-sm lg:text-lg font-normal text-gray-600"> RSD</span>
+                <div className="text-xl lg:text-2xl font-bold text-sky-600 mb-1 transition-all duration-300 group-hover:scale-105">
+                  3.999<span className="text-xs lg:text-base font-normal text-gray-600"> RSD</span>
+                </div>
+                <div className="text-xl lg:text-2xl font-bold text-sky-600 mb-3 lg:mb-4 transition-all duration-300 group-hover:scale-105">
+                  66<span className="text-xs lg:text-base font-normal text-gray-600"> KM</span>
                 </div>
                 <button
-                  onClick={() => handleShowModal('http://aislike.rs/portret/45x35cm.jpg')}
+                  onClick={() => handleShowModal('/images/dimenzije/45x35cm.jpg')}
                   className="w-full bg-sky-500 text-white py-2 lg:py-3 rounded-full font-semibold hover:bg-sky-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-sm lg:text-base"
                 >
                   Primer
@@ -590,11 +639,14 @@ function App() {
                   <span className="text-sky-600 font-bold text-sm">45×60</span>
                 </div>
                 <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-sky-600">45 × 60 cm</h3>
-                <div className="text-2xl lg:text-3xl font-bold text-sky-600 mb-3 lg:mb-4 transition-all duration-300 group-hover:scale-105">
-                  4.999<span className="text-sm lg:text-lg font-normal text-gray-600"> RSD</span>
+                <div className="text-xl lg:text-2xl font-bold text-sky-600 mb-1 transition-all duration-300 group-hover:scale-105">
+                  4.999<span className="text-xs lg:text-base font-normal text-gray-600"> RSD</span>
+                </div>
+                <div className="text-xl lg:text-2xl font-bold text-sky-600 mb-3 lg:mb-4 transition-all duration-300 group-hover:scale-105">
+                  83<span className="text-xs lg:text-base font-normal text-gray-600"> KM</span>
                 </div>
                 <button
-                  onClick={() => handleShowModal('http://aislike.rs/portret/60x45cm.jpg')}
+                  onClick={() => handleShowModal('/images/dimenzije/60x45cm.jpg')}
                   className="w-full bg-sky-500 text-white py-2 lg:py-3 rounded-full font-semibold hover:bg-sky-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-sm lg:text-base"
                 >
                   Primer
@@ -612,11 +664,14 @@ function App() {
                   <span className="text-white font-bold text-sm">50×75</span>
                 </div>
                 <h3 className="text-lg lg:text-xl font-bold mb-2 transition-all duration-300 group-hover:scale-105">50 × 75 cm</h3>
-                <div className="text-2xl lg:text-3xl font-bold mb-3 lg:mb-4 transition-all duration-300 group-hover:scale-105">
-                  6.199<span className="text-sm lg:text-lg font-normal opacity-80"> RSD</span>
+                <div className="text-xl lg:text-2xl font-bold mb-1 transition-all duration-300 group-hover:scale-105">
+                  6.199<span className="text-xs lg:text-base font-normal opacity-80"> RSD</span>
+                </div>
+                <div className="text-xl lg:text-2xl font-bold mb-3 lg:mb-4 transition-all duration-300 group-hover:scale-105">
+                  103<span className="text-xs lg:text-base font-normal opacity-80"> KM</span>
                 </div>
                 <button
-                  onClick={() => handleShowModal('http://aislike.rs/portret/75x50cm.jpg')}
+                  onClick={() => handleShowModal('/images/dimenzije/75x50cm.jpg')}
                   className="w-full bg-white text-sky-600 py-2 lg:py-3 rounded-full font-semibold hover:bg-sky-50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-sm lg:text-base"
                 >
                   Primer
@@ -631,51 +686,15 @@ function App() {
                   <span className="text-sky-600 font-bold text-sm">70×100</span>
                 </div>
                 <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-sky-600">70 × 100 cm</h3>
-                <div className="text-2xl lg:text-3xl font-bold text-sky-600 mb-3 lg:mb-4 transition-all duration-300 group-hover:scale-105">
-                  9.899<span className="text-sm lg:text-lg font-normal text-gray-600"> RSD</span>
+                <div className="text-xl lg:text-2xl font-bold text-sky-600 mb-1 transition-all duration-300 group-hover:scale-105">
+                  9.899<span className="text-xs lg:text-base font-normal text-gray-600"> RSD</span>
+                </div>
+                <div className="text-xl lg:text-2xl font-bold text-sky-600 mb-3 lg:mb-4 transition-all duration-300 group-hover:scale-105">
+                  164<span className="text-xs lg:text-base font-normal text-gray-600"> KM</span>
                 </div>
                 <div className="py-2 lg:py-3"></div>
               </div>
             </div>
-            </div>
-          </div>
-
-          {/* Dodatne usluge */}
-          <div 
-            ref={setAdditionalServicesRef}
-            className={`bg-gradient-to-r from-purple-50 to-pink-50 rounded-3xl p-8 mb-12 transition-all duration-1000 delay-500 ${
-              isAdditionalServicesVisible 
-                ? 'opacity-100 transform translate-y-0 scale-100' 
-                : 'opacity-0 transform translate-y-12 scale-95'
-            }`}
-          >
-            <h3 className="text-2xl font-bold text-center text-gray-900 mb-8 transition-all duration-1000 delay-700">Dodatne Usluge</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 group">
-                <div className="flex items-center mb-4">
-                  <div className="bg-purple-100 rounded-full p-3 mr-4 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
-                    <MessageCircle className="w-6 h-6 text-purple-600" />
-                  </div>
-                  <div>
-                    <h4 className="text-base sm:text-lg font-bold text-gray-900 transition-colors duration-300 group-hover:text-purple-600">Natpis sa Posvetom</h4>
-                    <p className="text-purple-600 font-semibold">+199 RSD (1.5€)</p>
-                  </div>
-                </div>
-                <p className="text-sm sm:text-base text-gray-600 transition-colors duration-300 group-hover:text-gray-700">Dodajte personalizovanu poruku na vaš portret.</p>
-              </div>
-              
-              <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 group">
-                <div className="flex items-center mb-4">
-                  <div className="bg-pink-100 rounded-full p-3 mr-4 transition-all duration-300 group-hover:scale-110 group-hover:-rotate-12">
-                    <Palette className="w-6 h-6 text-pink-600" />
-                  </div>
-                  <div>
-                    <h4 className="text-base sm:text-lg font-bold text-gray-900 transition-colors duration-300 group-hover:text-pink-600">Spajanje Osoba</h4>
-                    <p className="text-pink-600 font-semibold">+799 RSD (7€)</p>
-                  </div>
-                </div>
-                <p className="text-sm sm:text-base text-gray-600 transition-colors duration-300 group-hover:text-gray-700">Spajamo osobe sa različitih slika u jedan portret.</p>
-              </div>
             </div>
           </div>
 
@@ -696,8 +715,8 @@ function App() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               <div className="bg-white rounded-2xl p-6 shadow-lg transition-all duration-500 delay-1100 transform hover:scale-105 hover:-translate-y-2 hover:shadow-xl group">
-                <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-2">📍 Šaljemo iz Niša</h4>
-                <p className="text-sm sm:text-base text-gray-600 transition-colors duration-300 group-hover:text-gray-700">Portreti se prave u našem ateljeu u Nišu.</p>
+                <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-2">📍 Šaljemo iz Niša i Banjaluke</h4>
+                <p className="text-sm sm:text-base text-gray-600 transition-colors duration-300 group-hover:text-gray-700">Paketi se šalju iz Niša i Banjaluke.</p>
               </div>
               <div className="bg-white rounded-2xl p-6 shadow-lg transition-all duration-500 delay-1200 transform hover:scale-105 hover:-translate-y-2 hover:shadow-xl group">
                 <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-2">⏱️ Brza Isporuka</h4>
@@ -765,7 +784,7 @@ function App() {
           </p>
           <button
             onClick={() => {
-              window.open('viber://chat?number=+381604184190', '_blank');
+              window.open('viber://chat?number=+381617300731', '_blank');
               trackPortraitEvents.initiateContact();
             }}
             className="bg-white text-purple-600 px-8 py-4 sm:px-12 sm:py-5 rounded-full text-lg sm:text-xl font-bold hover:bg-purple-50 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl w-full max-w-sm sm:w-auto"
@@ -785,7 +804,7 @@ function App() {
           <div className="text-center">
             <div className="flex items-center justify-center mb-6">
               <img 
-                src="https://aislike.rs/portret/Logo.png" 
+                src="/images/Logo.png" 
                 alt="Pokloni Portret - Ručno rađeni portreti" 
                 className="w-20 h-20 sm:w-24 sm:h-24 object-contain mr-4"
                 loading="lazy"
@@ -855,7 +874,7 @@ function App() {
       <div className="fixed bottom-6 right-6 z-50">
         <button
           onClick={() => {
-            window.open('viber://chat?number=+381604184190', '_blank');
+            window.open('viber://chat?number=+381617300731', '_blank');
             trackPortraitEvents.floatingViberClick();
           }}
           className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-6 py-4 rounded-full text-base font-semibold hover:from-purple-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl flex items-center space-x-2 animate-pulse hover:animate-none"

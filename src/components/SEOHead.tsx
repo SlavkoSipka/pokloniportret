@@ -14,7 +14,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   description = "Pokloni Portret - Izrada portreta kao poklon. Ručno rađeni portreti po vašoj fotografiji. Cene od 2.999 RSD, besplatni prikaz, dostava za 4 dana. Najbolji poklon za sve prilike!",
   keywords = "pokloni portret, portret, izrada portreta, portret umetnost, portret kao poklon, ručno rađeni portret, portret po fotografiji, personalizovani portret, umetnost portret, slikanje portreta, poklon portret, custom portret, portret na porudžbinu, portret Niš, portret Srbija, portret cena, portret dimenzije, besplatni prikaz portreta",
   canonical = "https://pokloniportret.rs",
-  ogImage = "https://aislike.rs/portret/Logo.png",
+  ogImage = "/images/Logo.png",
   structuredData
 }) => {
   React.useEffect(() => {

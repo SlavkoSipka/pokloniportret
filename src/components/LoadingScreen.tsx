@@ -53,7 +53,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
             {/* Logo */}
             <div className="absolute inset-2 bg-white rounded-full flex items-center justify-center overflow-hidden shadow-2xl transform transition-all duration-1000 hover:scale-110">
               <img 
-                src="https://aislike.rs/portret/Logo.png" 
+                src="/images/Logo.png" 
                 alt="Pokloni Portret Logo" 
                 className="w-full h-full object-contain p-2 animate-pulse"
               />

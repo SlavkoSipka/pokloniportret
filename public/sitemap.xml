@@ -10,12 +10,12 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://aislike.rs/portret/Logo.png</image:loc>
+      <image:loc>https://pokloniportret.rs/images/Logo.png</image:loc>
       <image:title>Pokloni Portret - Logo</image:title>
       <image:caption>Pokloni Portret - Izrada portreta kao poklon</image:caption>
     </image:image>
     <image:image>
-      <image:loc>http://aislike.rs/portret/ovaaaa.jpg</image:loc>
+      <image:loc>https://pokloniportret.rs/images/ovaaaa.jpg</image:loc>
       <image:title>Pokloni Portret - Hero slika</image:title>
       <image:caption>Ručno rađeni portreti kao poklon</image:caption>
     </image:image>
@@ -44,7 +44,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>http://aislike.rs/portret/30x20.jpg</image:loc>
+      <image:loc>https://pokloniportret.rs/images/dimenzije/30x20.jpg</image:loc>
       <image:title>Portret 20x30cm - Primer</image:title>
       <image:caption>Ručno rađeni portret dimenzija 20x30cm kao poklon</image:caption>
     </image:image>
@@ -56,7 +56,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>http://aislike.rs/portret/40x30cm.jpg</image:loc>
+      <image:loc>https://pokloniportret.rs/images/dimenzije/40x30cm.jpg</image:loc>
       <image:title>Portret 30x40cm - Primer</image:title>
       <image:caption>Ručno rađeni portret dimenzija 30x40cm kao poklon</image:caption>
     </image:image>
@@ -68,7 +68,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>http://aislike.rs/portret/45x35cm.jpg</image:loc>
+      <image:loc>https://pokloniportret.rs/images/dimenzije/45x35cm.jpg</image:loc>
       <image:title>Portret 35x45cm - Primer</image:title>
       <image:caption>Ručno rađeni portret dimenzija 35x45cm kao poklon</image:caption>
     </image:image>
@@ -80,7 +80,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>http://aislike.rs/portret/60x45cm.jpg</image:loc>
+      <image:loc>https://pokloniportret.rs/images/dimenzije/60x45cm.jpg</image:loc>
       <image:title>Portret 45x60cm - Primer</image:title>
       <image:caption>Ručno rađeni portret dimenzija 45x60cm kao poklon</image:caption>
     </image:image>
@@ -92,7 +92,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>http://aislike.rs/portret/75x50cm.jpg</image:loc>
+      <image:loc>https://pokloniportret.rs/images/dimenzije/75x50cm.jpg</image:loc>
       <image:title>Portret 50x75cm - Najpopularniji</image:title>
       <image:caption>Najpopularniji ručno rađeni portret dimenzija 50x75cm kao poklon</image:caption>
     </image:image>
@@ -112,17 +112,17 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>http://aislike.rs/portret/before.jpg</image:loc>
+      <image:loc>https://pokloniportret.rs/images/before.jpg</image:loc>
       <image:title>Pre - Originalna fotografija</image:title>
       <image:caption>Originalna fotografija pre pravljenja portreta</image:caption>
     </image:image>
     <image:image>
-      <image:loc>http://aislike.rs/portret/probniprikaz.jpg</image:loc>
+      <image:loc>https://pokloniportret.rs/images/probniprikaz.jpg</image:loc>
       <image:title>Besplatni prikaz portreta</image:title>
       <image:caption>Besplatni prikaz portreta pre finalizacije</image:caption>
     </image:image>
     <image:image>
-      <image:loc>http://aislike.rs/portret/after.jpg</image:loc>
+      <image:loc>https://pokloniportret.rs/images/after.jpg</image:loc>
       <image:title>Posle - Finalni portret</image:title>
       <image:caption>Finalni ručno rađeni portret kao poklon</image:caption>
     </image:image>
